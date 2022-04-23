@@ -11,16 +11,16 @@ def leiaint(msg):
         else:
             return n
 
-def linha(tam=42):
+def linha(tam=26):
     return '-' * tam
 
-def linha_2(tam=42):
+def linha_2(tam=26):
     return '=' * tam
 
 def cabecalho(txt):
-    print(linha())
-    print(txt.center(42))
-    print(linha())
+    print(linha_2())
+    print(txt.center(5))
+    print(linha_2())
 
 def menu(lista):
     cabecalho('MENU PRINCIPAL')

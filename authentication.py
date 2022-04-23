@@ -1,34 +1,20 @@
-operations_users = {'Rafael': '1234', 'José': '1234', 'Maria': '1234', 'Antônio': '1234', 'César': '1234'}
-management_users = {'Celso': '1234', 'Fernanda': '4321'}
+from time import sleep
+from sistema import *
 
-"""
-    Importante:
-        Apenas usuários do grupo management users tem permissão de acessar o modulo gerenciamento geral.
-    
-    O menu 1 e 2 são permitidos para todos os usuários autenticados
-    O menu 3 apenas para usuários da lista management_users
-"""
+operations_users = ['celso', 'fernanda', 'rafael', 'josé', 'maria', 'antônio', 'cesar']
+operations_password = [2022]
+management_users = ['celso', 'fernanda']
+management_password = [1985]
 
-
-def auth_user(menu_number, username, password):
-
-    if (menu_number == 1 or menu_number == 2) and (
-            (username in operations_users and operations_users[username] == password)
-            or
-            (username in management_users.keys() and management_users[username] == password)
-    ):
-
-        print(f"Ola {username} bem vindo!")
-        return 1
-
-    elif menu_number == 3 and (
-            username in management_users.keys() and management_users[username] == password
-    ):
-
-        print(f"Ola {username} bem vindo você é do grupo management users!")
-        return 1
-
-    else:
-
-        print(f'Ooops {username}, não consegui te dar acesso! Verifique suas permissões e/ou usuário e senha :(')
-        return 0
+def funcionario():
+    print(linha_2())
+    func = input('Digite o nome: ')
+    print(linha())
+    sen = input('Digite a senha: ')
+    if func not in operations_users:
+        operations_users.append(func)
+    if sen not in operations_password:
+        operations_password.append(sen)
+        print("Sucesso no cadastro de {}!" .format(func))
+        sleep(1)
+        exit()

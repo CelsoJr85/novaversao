@@ -1,26 +1,40 @@
 from time import sleep
-from geralce import *
-from geralrelatorio import *
-from geralre import *
+from sistema import *
+from authentication import *
 
-def menu_geral():
+def menu_gerencial():
     while True:
-        print('Sistema One v1.0.0')
-        print('1 - Cadastro de Entrada')
-        print('2 - Relatório de Produtos Cadastrados')
-        print('3 - Relatorio Entrada')
-        print('4 - Sair do Sistema')
+        cabecalho('GERÊNCIA')
+        usuario_gerencia = input('Digite seu usuario: ')
+        senha_gerencia = int(input('Digite sua senha:   '))
 
-        opcao = int(input('Sua opção: '))
-        if opcao == 1:
-            cadastro_produto()
+        if usuario_gerencia in management_users:
+            if senha_gerencia in management_password:
+                print('Bem vindo {}!' .format(usuario_gerencia))
+                sleep(1)
+                print(linha_2())
+                print('[1] - Cadastrar Funcionários')
+                print('[2] - Cadastrar Produtos')
+                print('[3] - Relatorio')
+                print('[4] - Sair do Sistema')
+                print(linha())
+                escol = int(input('Sua opção: '))
 
-        if opcao == 2:
-            relatorio()
+                if escol == 1:
+                   funcionario()
 
-        if opcao == 3:
-            relatorio_deposito()
+                if escol == 2:
+                    pass
 
-        if opcao == 4:
-            sleep(2)
-            exit()
+                if escol == 3:
+                    pass
+
+                if escol == 4:
+                    sleep(1)
+                    break
+
+
+        if usuario_gerencia not in management_users:
+            print('Usuario não permitido!')
+            print('Tente novamente!')
+            sleep(1)

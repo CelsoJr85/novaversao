@@ -1,35 +1,27 @@
-from authentication import auth_user
+""" MENU PRINCIPAL """
+from sistema import *
+from deposito import *
+from geral import *
 
+cabecalho(' BEM VINDO AO SISTEMA ONE')
 
-def print_menu_number():
-
-    print('Sistema One v1.0.0')
-    print('1 - Conferente Depósito')
-    print('2 - Conferente Loja')
-    print('3 - Gerenciamento Geral')
-    print('4 - Sair do Sistema')
+while True:
+    print('[1] - Conferente Depósito')
+    print('[2] - Conferente Loja')
+    print('[3] - Gerência')
+    print('[4] - Sair do Sistema')
+    print(linha())
     menu_number = int(input('Sua opção: '))
 
+    if menu_number == 1:
+        menu_deposito()
+
+    if menu_number == 2:
+        loja.py()
+
+    if menu_number == 3:
+        menu_gerencial()
+
     if menu_number == 4:
-        return [4]
-
-    username = input('Informe seu usuário: ')
-    password = input(f'Informe a senha do usuario {username}: ')
-    return [menu_number, username, password]
-
-
-def run_menu(menu_number, username, password):
-
-    auth_user(menu_number, username, password)
-
-
-def conferente_loja_menu():
-    print('Conferente loja menu')
-
-
-def conferente_gerenciamento_geral_menu():
-    print('Gerencialmento geral menu')
-
-
-def conferente_sair_menu():
-    print('Saindo!')
+        sleep(1)
+        break

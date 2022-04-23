@@ -1,20 +1,25 @@
 from time import sleep
-from depositorecebe import *
-import depositoconferencia
+from sistema import *
+from authentication import *
+
 
 def menu_deposito():
-        print('Sistema One v1.0.0')
-        print('1 - Recebimento')
-        print('2 - Conferência')
-        print('3 - Sair do Sistema')
-        escolha = int(input('Sua opção: '))
+    while True:
+        cabecalho('        DEPÓSITO')
+        usuario_deposito = input('Digite seu usuario: ')
+        senha_deposito = int(input('Digite sua senha:   '))
 
-        if escolha == 1:
-            recebe_mercadoria()
+        if usuario_deposito in operations_users:
+            if senha_deposito in operations_password:
+                print('Bem vindo {}!' .format(usuario_deposito))
+                sleep(1)
+                print(linha_2())
+                print('[1] - Recebimento')
+                print('[2] - Conferência')
+                print('[3] - Sair do Sistema')
+                print(linha())
+                escolha = int(input('Sua opção: '))
 
-        elif escolha == 2:
-           conferencia_deposito()
-
-        elif escolha == 3:
-            sleep(2)
-            exit()
+        if usuario_deposito not in operations_users:
+            print('Usuario não permitido!')
+            sleep(1)

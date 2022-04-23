@@ -1,7 +1,7 @@
 from time import sleep
-from sistema import *
-from users import *
-from geral import *
+from sistema import linha_2, linha
+from users import operations_users, operations_password
+
 
 def funcionario():
     print(linha_2())
@@ -12,6 +12,6 @@ def funcionario():
         operations_users.append(func)
     if sen not in operations_password:
         operations_password.append(sen)
-        print("Sucesso no cadastro de {}!" .format(func))
+        print("Sucesso no cadastro de {}!".format(func))
         sleep(1)
-        menu_gerencial(auth=True)
+        return True

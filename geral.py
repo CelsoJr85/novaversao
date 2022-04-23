@@ -1,7 +1,8 @@
 from time import sleep
-from sistema import *
-from authentication import *
+import authentication as auth_func
+from sistema import cabecalho, linha_2, linha
 from users import *
+
 
 def menu_gerencial(auth=False):
     while True:
@@ -11,7 +12,7 @@ def menu_gerencial(auth=False):
             senha_gerencia = int(input('Digite sua senha:   '))
             if usuario_gerencia in management_users:
                 if senha_gerencia in management_password:
-                    print('Bem vindo {}!' .format(usuario_gerencia))
+                    print('Bem vindo {}!'.format(usuario_gerencia))
                     sleep(1)
                     print(linha_2())
                     print('[1] - Cadastrar Funcionários')
@@ -22,7 +23,7 @@ def menu_gerencial(auth=False):
                     escol = int(input('Sua opção: '))
 
                     if escol == 1:
-                       funcionario()
+                        auth = auth_func.funcionario()
 
                     if escol == 2:
                         pass
@@ -52,7 +53,7 @@ def menu_gerencial(auth=False):
             escol = int(input('Sua opção: '))
 
             if escol == 1:
-                funcionario()
+                auth = auth_func.funcionario()
 
             if escol == 2:
                 pass

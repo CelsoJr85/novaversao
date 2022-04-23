@@ -1,6 +1,4 @@
 from time import sleep
-from sistema import *
-from authentication import *
 
 
 def menu_deposito():

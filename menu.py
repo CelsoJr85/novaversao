@@ -1,7 +1,7 @@
 """ MENU PRINCIPAL """
 from sistema import *
-from deposito import *
-from geral import *
+from deposito import menu_deposito
+from geral import menu_gerencial
 
 cabecalho(' BEM VINDO AO SISTEMA ONE')
 

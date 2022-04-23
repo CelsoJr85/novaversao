@@ -1,10 +1,7 @@
 from time import sleep
 from sistema import *
-
-operations_users = ['celso', 'fernanda', 'rafael', 'josé', 'maria', 'antônio', 'cesar']
-operations_password = [2022]
-management_users = ['celso', 'fernanda']
-management_password = [1985]
+from users import *
+from geral import *
 
 def funcionario():
     print(linha_2())
@@ -17,4 +14,4 @@ def funcionario():
         operations_password.append(sen)
         print("Sucesso no cadastro de {}!" .format(func))
         sleep(1)
-        exit()
+        menu_gerencial(auth=True)

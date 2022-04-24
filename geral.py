@@ -22,7 +22,7 @@ def menu_gerencial(auth=False):
                     escolha = int(input('Sua opção: '))
 
                     if escolha == 1:
-                        menu_funcionario()
+                        auth = menu_funcionario()
 
                     if escolha == 2:
                         pass
@@ -52,7 +52,7 @@ def menu_gerencial(auth=False):
             escol = int(input('Sua opção: '))
 
             if escol == 1:
-                menu_funcionario()
+                auth = menu_funcionario()
 
             if escol == 2:
                 pass

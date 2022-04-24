@@ -1,5 +1,4 @@
 from time import sleep
-
 import geral
 from sistema import linha_2, linha, cabecalho
 from users import operations_users, operations_password
@@ -38,4 +37,4 @@ def menu_funcionario():
             listar_funcionarios()
 
         elif choice == 3:
-            geral.menu_gerencial(auth=True)
+            return True

@@ -1,8 +1,7 @@
 from time import sleep
-import authentication as auth_func
 from sistema import cabecalho, linha_2, linha
 from users import *
-
+from authentication import menu_funcionario
 
 def menu_gerencial(auth=False):
     while True:
@@ -15,23 +14,23 @@ def menu_gerencial(auth=False):
                     print('Bem vindo {}!'.format(usuario_gerencia))
                     sleep(1)
                     print(linha_2())
-                    print('[1] - Cadastrar Funcionários')
+                    print('[1] - Funcionários')
                     print('[2] - Cadastrar Produtos')
                     print('[3] - Relatorio')
                     print('[4] - Sair do Sistema')
                     print(linha())
-                    escol = int(input('Sua opção: '))
+                    escolha = int(input('Sua opção: '))
 
-                    if escol == 1:
-                        auth = auth_func.funcionario()
+                    if escolha == 1:
+                        menu_funcionario()
 
-                    if escol == 2:
+                    if escolha == 2:
                         pass
 
-                    if escol == 3:
+                    if escolha == 3:
                         pass
 
-                    if escol == 4:
+                    if escolha == 4:
                         sleep(1)
                         break
 
@@ -45,7 +44,7 @@ def menu_gerencial(auth=False):
 
         elif auth is True:
             print(linha_2())
-            print('[1] - Cadastrar Funcionários')
+            print('[1] - Funcionários')
             print('[2] - Cadastrar Produtos')
             print('[3] - Relatorio')
             print('[4] - Sair do Sistema')
@@ -53,7 +52,7 @@ def menu_gerencial(auth=False):
             escol = int(input('Sua opção: '))
 
             if escol == 1:
-                auth = auth_func.funcionario()
+                menu_funcionario()
 
             if escol == 2:
                 pass

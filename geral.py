@@ -2,64 +2,39 @@ from time import sleep
 from sistema import cabecalho, linha_2, linha
 from users import *
 from authentication import menu_funcionario
+import pandas as pd
 
-def menu_gerencial(auth=False):
+def menu_gerencial():
     while True:
-        if auth is False:
-            cabecalho('GERÊNCIA')
-            usuario_gerencia = input('Digite seu usuario: ')
-            senha_gerencia = int(input('Digite sua senha:   '))
-            if usuario_gerencia in management_users:
-                if senha_gerencia in management_password:
-                    print('Bem vindo {}!'.format(usuario_gerencia))
+        tabela_usuario = pd.read_excel("login_sistema.xlsx", sheet_name="1", usecols="A:D")
+        usuario = input('Usuário: ')
+        if usuario in tabela_usuario:
+            tabela_senha = pd.read_excel('login_sistema.xlsx', sheet_name="1", usecols="E")
+            senhas = input('Senha:')
+            for senhas in tabela_senha:
+                print(f'Seja bem vindo {usuario}!')
+                sleep(1)
+                cabecalho('GERENCIAMENTO')
+                print('[1] - Funcionários')
+                print('[2] - Cadastrar Produtos')
+                print('[3] - Relatorio')
+                print('[4] - Sair do Sistema')
+                print(linha())
+                escolha = int(input('Sua opção: '))
+
+                if escolha == 1:
+                    menu_funcionario()
+                if escolha == 2:
+                    pass
+                if escolha == 3:
+                    pass
+                if escolha == 4:
                     sleep(1)
-                    print(linha_2())
-                    print('[1] - Funcionários')
-                    print('[2] - Cadastrar Produtos')
-                    print('[3] - Relatorio')
-                    print('[4] - Sair do Sistema')
-                    print(linha())
-                    escolha = int(input('Sua opção: '))
+                    break
 
-                    if escolha == 1:
-                        auth = menu_funcionario()
-
-                    if escolha == 2:
-                        pass
-
-                    if escolha == 3:
-                        pass
-
-                    if escolha == 4:
-                        sleep(1)
-                        break
-
-                else:
-                    print('Senha não reconhecida, tente novamente.')
-                    sleep(1)
             else:
-                print('Usuario não permitido!')
-                print('Tente novamente!')
+                print('Senha errada! Tente novamente.')
                 sleep(1)
-
-        elif auth is True:
-            print(linha_2())
-            print('[1] - Funcionários')
-            print('[2] - Cadastrar Produtos')
-            print('[3] - Relatorio')
-            print('[4] - Sair do Sistema')
-            print(linha())
-            escol = int(input('Sua opção: '))
-
-            if escol == 1:
-                auth = menu_funcionario()
-
-            if escol == 2:
-                pass
-
-            if escol == 3:
-                pass
-
-            if escol == 4:
-                sleep(1)
-                break
+        else:
+            print('Usuario não reconhecido, tente novamente.')
+            sleep(1)

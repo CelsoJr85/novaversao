@@ -1,7 +1,7 @@
 .DS_Store
-.idea
 .idea/AplicativoOne.iml
 .idea/misc.xml
+.idea
 .env
 env
 __pycache__
